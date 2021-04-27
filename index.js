@@ -60,6 +60,24 @@ app.get("/users/:song_name", (req, res) => {
   );
 });
 
+app.get("/artists", (req, res) => {
+  connection.query(`SELECT artist_name FROM user`, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send(result);
+  });
+});
+
+app.get("/albums", (req, res) => {
+  connection.query(`SELECT song_album FROM user`, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send(result);
+  });
+});
+
 app.delete("/users/:song_name", (req, res) => {
   connection.query(
     "DELETE FROM user WHERE song_name = ?",
