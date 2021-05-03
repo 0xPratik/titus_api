@@ -19,10 +19,14 @@ app.use(morgan("dev"));
 const userRoutes = require("./routes/user");
 const playlistRoutes = require("./routes/playlist");
 const reportsRoutes = require("./routes/reports");
+const favouritesRoutes = require("./routes/favourites/favourites");
+const favourites_playlistRoutes = require("./routes/favourites/favourites_playlist");
 
 app.use("/api", userRoutes);
 app.use("/api", playlistRoutes);
 app.use("/api", reportsRoutes);
+app.use("/api", favouritesRoutes);
+app.use("/api", favourites_playlistRoutes);
 
 const PORT = 5000;
 
