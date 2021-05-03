@@ -60,3 +60,16 @@ exports.updateFavSong = (req, res) => {
     }
   );
 };
+
+exports.addfavourites = (req, res) => {
+  connection.query(
+    "INSERT INTO favourites(song_src,playlist_id) VALUES(?,?);",
+    [req.body.song_src, req.body.playlist_id],
+    (err, result) => {
+      if (err) {
+        throw err;
+      }
+      res.status(200).send(result);
+    }
+  );
+};
