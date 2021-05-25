@@ -5,8 +5,10 @@ const {
   getAReport,
   getReports,
   updateDuration,
+  createReports,
 } = require("../controllers/reports");
 
+router.post("/reports", createReports);
 router.get("/reports", getReports);
 router.get("/reports/:src", getAReport);
 router.delete("/reports/:src", deleteAReport);

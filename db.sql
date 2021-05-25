@@ -82,3 +82,9 @@ DELETE FROM polkamusic.user;
 
 SELECT song_name, artist_name, song_track, song_album, song_url
 FROM polkamusic.user;
+
+
+nft: (T::ClassId, T::TokenId),
+start_price: BalanceOf<T>,
+start: T::BlockNumber,
+end: T::BlockNumber,

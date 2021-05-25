@@ -1,6 +1,20 @@
 const connection = require("../db");
-const controller = require("../db");
 
+exports.createReports = (req, res) => {
+  const { song_src, duration, user_publickey } = req.body;
+  const processed = false;
+  const nDur = Number(duration);
+  connection.query(
+    "INSERT INTO reports(song_src,duration,user_publickey,processed) VALUES (?,?,?,?)",
+    [song_src, duration, user_publickey, processed],
+    (err, result) => {
+      if (err) {
+        throw err;
+      }
+      res.status(200).send(result);
+    }
+  );
+};
 exports.getReports = (req, res) => {
   connection.query("SELECT * FROM reports", (err, result) => {
     if (err) {
